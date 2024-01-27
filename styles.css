@@ -1,12 +1,46 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    background: url('./img/pokeballs.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+
+/* SEARCH */
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.search_button {
+  padding: 10px 20px;
+  background-color: #e71008;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search_button:hover {
+  background-color: #6b0808;
+}
+
+
+
+/* CARDS */
   
   .pokemon-container {
     width: 1500px;
@@ -41,7 +75,7 @@ body {
   }
   
   .pokemon-card button {
-    background-color: #3498db;
+    background-color: #e71008;
     color: #fff;
     border: none;
     padding: 10px;
@@ -50,5 +84,61 @@ body {
   }
   
   .pokemon-card button:hover {
-    background-color: #2980b9;
+    background-color: #6b0808;
   }
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  max-width: 400px;
+  position: relative; 
+}
+
+.name {
+  text-align: center;
+}
+
+.pokemon_img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+}
+
+.modal-content ul {
+  padding: 0;
+  list-style: none;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.close:hover {
+  color: #e71008;
+}
