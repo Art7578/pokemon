@@ -2,7 +2,7 @@ const requestUrl = "https://pokeapi.co/api/v2/pokemon/";
 const cardsContainer = document.getElementById('pokemon-container');
 const modal = document.getElementById('modal');
 const modalContent = document.getElementById('modal-content');
-let originalCardsMarkup = ''; // Variable to store original cards markup
+const modalBackdrop = document.getElementById('modalBackdrop');
 
 function sendRequest(method, url, body = null) {
     return fetch(url).then(response => {
@@ -12,7 +12,7 @@ function sendRequest(method, url, body = null) {
 
 sendRequest('Get', requestUrl)
     .then(data => {
-        originalCardsMarkup = data.results.map(pokemon => `
+        const cards = data.results.map(pokemon => `
             <div class="pokemon-card">
                 <h3>${pokemon.name}</h3>
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.url.split('/')[6]}.png" alt="">
@@ -20,7 +20,7 @@ sendRequest('Get', requestUrl)
             </div>
         `).join('');
 
-        cardsContainer.innerHTML = originalCardsMarkup;
+        cardsContainer.innerHTML = cards;
     })
     .catch(error => console.log(error));
 
@@ -46,8 +46,10 @@ function displayModal(pokemon) {
         <button class="close" onclick="closeModal()">&times;</button>
     `;
     modal.style.display = "block";
+    modalBackdrop.style.display = "block";
 }
 
 function closeModal() {
     modal.style.display = "none";
+    modalBackdrop.style.display = "none";
 }

@@ -1,6 +1,3 @@
-// В начале вашего скрипта добавьте переменную для хранения исходного содержимого контейнера
-const originalContent = cardsContainer.innerHTML;
-
 function searchPokemon() {
     const pokemonName = document.getElementById('pokemonNameInput').value.toLowerCase();
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`;
@@ -17,14 +14,7 @@ function searchPokemon() {
             cardsContainer.innerHTML = pokemonCard;
         })
         .catch(error => {
-            // Если покемон не найден, восстанавливаем исходное содержимое контейнера
-            cardsContainer.innerHTML = `<img class ="not_found_image" src="../img/not_found.jpg" alt="">`;
+            cardsContainer.innerHTML = `<img class ="not_found_image" src="../img/not_found.jpg" alt=""></img>`;
             console.log(error);
         });
-}
-
-// После того, как поле ввода очищается, восстанавливаем исходное содержимое контейнера
-function clearSearch() {
-    document.getElementById('pokemonNameInput').value = '';
-    cardsContainer.innerHTML = originalContent;
 }
